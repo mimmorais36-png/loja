@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STARGLAM</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#ffb7ff,#b388ff,#7ec8ff);
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.10);
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:2px;
+    color:white;
+    text-shadow:0 0 10px #ff66ff;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:25px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff4dff;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop') center/cover;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-box{
+    background:rgba(0,0,0,0.35);
+    padding:55px;
+    border-radius:30px;
+    border:2px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 25px rgba(255,255,255,0.15);
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:78px;
+    margin-bottom:18px;
+    text-shadow:0 0 20px #ff66ff;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:32px;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#ff4dff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px #ff4dff;
+    font-weight:bold;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#ff00dd;
+}
+
+/* SECTION */
+
+section{
+    padding:90px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:50px;
+    text-shadow:0 0 10px white;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.12);
+    border-radius:25px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(255,255,255,0.08);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(255,255,255,0.25);
+}
+
+.card img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#f0f0f0;
+    line-height:24px;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+/* COLLECTIONS */
+
+.collections{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.collection{
+    position:relative;
+    height:360px;
+    border-radius:28px;
+    overflow:hidden;
+}
+
+.collection img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent, rgba(0,0,0,0.85));
+    display:flex;
+    align-items:flex-end;
+    padding:25px;
+}
+
+.overlay h3{
+    font-size:30px;
+}
+
+/* BANNER */
+
+.banner{
+    background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+    url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1400&auto=format&fit=crop') center/cover;
+
+    height:420px;
+    border-radius:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+}
+
+.banner h2{
+    font-size:60px;
+    margin-bottom:18px;
+}
+
+.banner p{
+    font-size:18px;
+    margin-bottom:24px;
+}
+
+/* REVIEWS */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.review{
+    background:rgba(255,255,255,0.12);
+    padding:28px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+}
+
+.review h3{
+    margin-bottom:15px;
+}
+
+.review p{
+    line-height:28px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    text-align:center;
+    background:rgba(255,255,255,0.08);
+    border-top:1px solid rgba(255,255,255,0.2);
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.newsletter h2{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    margin-bottom:25px;
+}
+
+.newsletter input{
+    padding:15px;
+    width:300px;
+    border:none;
+    border-radius:30px;
+    outline:none;
+    margin-right:10px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    background:rgba(0,0,0,0.25);
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero-box{
+    padding:35px;
+}
+
+nav{
+    display:none;
+}
+
+.banner h2{
+    font-size:40px;
+}
+
+.newsletter input{
+    width:100%;
+    margin-bottom:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+STARGLAM ✨
+</div>
+
+<nav>
+<a href="#">Início</a>
+<a href="#">Produtos</a>
+<a href="#">Coleções</a>
+<a href="#">Reviews</a>
+<a href="#">Contato</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-box">
+
+<h1>
+BADDIE Y2K
+</h1>
+
+<p>
+Moda feminina premium inspirada na estética
+streetwear, baddie e tendências Y2K modernas.
+</p>
+
+<button class="btn">
+Comprar Agora
+</button>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Trending Agora 💖
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1506629905607-c45d0f5d6d70?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Black Glam Set</h3>
+
+<p>
+Conjunto premium com estética baddie moderna.
+</p>
+
+<div class="price">
+R$ 249,90
+</div>
+
+<button class="btn">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Pink Streetwear</h3>
+
+<p>
+Look Y2K moderno inspirado na moda coreana.
+</p>
+
+<div class="price">
+R$ 189,90
+</div>
+
+<button class="btn">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Luxury Baddie Outfit</h3>
+
+<p>
+Look premium inspirado na estética luxury Y2K.
+</p>
+
+<div class="price">
+R$ 279,90
+</div>
+
+<button class="btn">
+Adicionar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="banner">
+
+<div>
+
+<h2>
+NEW DROP 2026
+</h2>
+
+<p>
+Coleção exclusiva inspirada na estética luxury Y2K.
+</p>
+
+<button class="btn">
+Ver Coleção
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Coleções ✨
+</h2>
+
+<div class="collections">
+
+<div class="collection">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay">
+<h3>Streetwear</h3>
+</div>
+
+</div>
+
+<div class="collection">
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay">
+<h3>Dark Glam</h3>
+</div>
+
+</div>
+
+<div class="collection">
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay">
+<h3>Luxury Y2K</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">
+Avaliações 💬
+</h2>
+
+<div class="reviews">
+
+<div class="review">
+
+<h3>
+Ana Clara ⭐⭐⭐⭐⭐
+</h3>
+
+<p>
+“A qualidade das roupas é perfeita e o site ficou lindo.”
+</p>
+
+</div>
+
+<div class="review">
+
+<h3>
+Julia ⭐⭐⭐⭐⭐
+</h3>
+
+<p>
+“Finalmente uma loja Y2K com aparência premium.”
+</p>
+
+</div>
+
+<div class="review">
+
+<h3>
+Manu ⭐⭐⭐⭐⭐
+</h3>
+
+<p>
+“As peças parecem roupa de influencer.”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>
+Entre para o STAR CLUB ✨
+</h2>
+
+<p>
+Receba promoções, novidades e lançamentos exclusivos.
+</p>
+
+<input type="email" placeholder="Seu e-mail">
+
+<button class="btn">
+Entrar
+</button>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 STARGLAM
+</p>
+
+<p>
+Desenvolvido por Morais ✦
+</p>
+
+<p>
+Design inspirado na estética Y2K e baddie fashion ✨
+</p>
+
+</footer>
+
+</body>
+</html>
